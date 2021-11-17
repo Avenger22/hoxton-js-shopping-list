@@ -1,10 +1,15 @@
 let shoppingListItems = ["Milk", "Cocoa", "Salad", "Carrots", "Tomatoes", "Ready meals"]
 let shoppingListItemsPrice = [1.20, 2.00, 2.00, 2.00, 2.50, 5.00]
+let shoppingListItemsAvailable = ["Lettuce", "Beets", "Peas"]
+
 alert("Welcome to our shopping lists program !!!")
 console.log("Welcome !!!")
 
-let listItem = prompt("Enter a new item in the list : ")
+let listItem = prompt("Enter a new item in the list you can choose from new items like : \n Lettuce \n Beets \n Peas : ")
 confirm("Would you like to confirm this ?")
+
+//HERE WE CONTORL FOR THE USER INPUT IF HE ENTERED A NUMBER AND NOT A STRING
+let productNotFound = null;
 
 if ((Number(listItem))) {
     alert("Please user enter a string not a number")
@@ -16,6 +21,15 @@ if ((Number(listItem))) {
     }
 }
 
+//LOOP FOR AVAILABLE LISTS
+while (productNotFound = shoppingListItemsAvailable.indexOf(listItem) === -1) {
+    alert("Please enter an string item within the available list : ")
+    listItem = prompt("Enter a new item in the list you can choose from new items like : \n Lettuce \n Beets \n Peas : ")
+    confirm("Would you like to confirm this ?")
+    productNotFound = shoppingListItemsAvailable.indexOf(listItem) === -1
+}
+
+//HERE WE CONTROL FOR USER INPUT IF HE ENTERED A STRING AND NOT A NUMBER
 let listItemPrice = Number(prompt("Enter the price of the new item in the list : "))
 confirm("Would you like to confirm this ?")
 
