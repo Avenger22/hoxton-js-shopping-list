@@ -1,11 +1,12 @@
 let shoppingListItems = [
-    ["Milk", 1.20], 
-    ["Cocoa", 2.00],
-    ["Salad", 2.00], 
-    ["Carrots", 2.000],
-    ["Tomatoes", 2.50], 
-    ["Ready meals", 5.00]
+    { name: "Milk", price: 1.20}, 
+    { name: "Cocoa", price: 2.00},
+    { name: "Salad", price: 2.00}, 
+    { name: "Carrots", price: 2.0},
+    { name: "Tomatoes", price: 2.50}, 
+    { name: "Ready meals", price: 5.00}
 ]
+
 let shoppingListItemsAvailable = ["Lettuce", "Beets", "Peas"]
 
 alert("Welcome to our shopping lists program !!!")
@@ -49,16 +50,17 @@ if (Number.isNaN(listItemPrice)) {
     }
 }
 
-//Now we add the item and price to both arrays that we got from prompt
-shoppingListItems.push([listItem, listItemPrice])
+//Now we add the item and price to object this time that we got from prompt
+let objectPush = { name: listItem, price: listItemPrice }
+shoppingListItems.push(objectPush)
 
 //Outputing the array items one by one made it better this way
 alert("We will now output the items and price in the console so be patient.")
 
 let totalPrice = 0;
 for (const element of shoppingListItems) {
-    let name = element[0]
-    let price = element[1]
+    let name = element.name
+    let price = element.price
     totalPrice += price
     console.log(`The element with the name : ${name} with price : ${price.toFixed(2)} $ \n`)
 }
