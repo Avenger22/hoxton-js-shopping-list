@@ -1,5 +1,11 @@
-let shoppingListItems = ["Milk", "Cocoa", "Salad", "Carrots", "Tomatoes", "Ready meals"]
-let shoppingListItemsPrice = [1.20, 2.00, 2.00, 2.00, 2.50, 5.00]
+let shoppingListItems = [
+    ["Milk", 1.20], 
+    ["Cocoa", 2.00],
+    ["Salad", 2.00], 
+    ["Carrots", 2.000],
+    ["Tomatoes", 2.50], 
+    ["Ready meals", 5.00]
+]
 let shoppingListItemsAvailable = ["Lettuce", "Beets", "Peas"]
 
 alert("Welcome to our shopping lists program !!!")
@@ -35,7 +41,7 @@ confirm("Would you like to confirm this ?")
 
 if (Number.isNaN(listItemPrice)) {
     alert("Please user enter a number not a string")
-    listItemPrice = prompt("Please enter again this time a string : ")
+    listItemPrice = Number(prompt("Please enter again this time a string : "))
 
     if (Number.isNaN(listItemPrice)) {
         alert("Sorry User we terminate the program you are trolling us.")
@@ -44,45 +50,19 @@ if (Number.isNaN(listItemPrice)) {
 }
 
 //Now we add the item and price to both arrays that we got from prompt
-shoppingListItems.push(listItem)
-shoppingListItemsPrice.push(listItemPrice)
+shoppingListItems.push([listItem, listItemPrice])
 
 //Outputing the array items one by one made it better this way
 alert("We will now output the items and price in the console so be patient.")
 
-let totalPrice = null;
+let totalPrice = 0;
 for (const element of shoppingListItems) {
-    let indexOfElement = shoppingListItems.indexOf(element)
-    console.log(`The elements are : ${element} and the price is : ${shoppingListItemsPrice[indexOfElement].toFixed(2)}`)
-    totalPrice += shoppingListItemsPrice[indexOfElement]
-    // alert(`The elements are : ${element}`)
+    let name = element[0]
+    let price = element[1]
+    totalPrice += price
+    console.log(`The element with the name : ${name} with price : ${price.toFixed(2)} $ \n`)
 }
 
 //outputing TOTAL PRICE AFTER LOOP
-console.log(`The Total Price is : ${totalPrice.toFixed(2)} `)
-
-// for (const element of shoppingListItemsPrice) {
-//     console.log(`The elements Price are : ${element.toFixed(2)}`)
-//     alert(`The elements Price are : ${element.toFixed(2)}`)
-// }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+console.log(`The Total Price like you entered is : ${totalPrice} $`)
+console.log(`The Total Price rounded with 2 decimal is : ${totalPrice.toFixed(2)} $`)
